@@ -151,7 +151,7 @@
                 document.getElementById("res_stat").innerHTML = "Status: In Active since "+result_date;
                 var result_recy = resp.recycled;
                 if(result_recy == '0'){
-
+                  document.getElementById("res_recy").innerHTML = "";
                 }
                 else if(result_recy == '1'){
                   var result_r_date = resp.r_date;
@@ -164,7 +164,7 @@
                 document.getElementById("res_stat").innerHTML = "Status: Active since "+result_date;
                 var result_recy = resp.recycled;
                 if(result_recy == '0'){
-
+                  document.getElementById("res_recy").innerHTML = "";
                 }
                 else if(result_recy == '1'){
                   var result_r_date = resp.r_date;
