@@ -39,10 +39,10 @@
 		  
             <h1>Welcome to Number Fish</h1><br/><h3>Here You Can Search for Mobile Number Details</h3>
             <div class="mtb">
-              <div> 
+              <form id="searchform"> 
                 <input id="number" type="tel" class="subscribe-input" placeholder="Enter mobile number ..." required>
                 <button id="search" class="btn btn-conf btn-green" type="submit">Search</button>
-              </div>
+              </form>
             </div><!--/mt-->
             <h6>30 DAY FREE TRIAL - NO CREDIT CARD NEEDED.</h6>
           </div>
@@ -137,7 +137,7 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/retina-1.1.0.js"></script>
     <script type="text/javascript">
-      document.getElementById("search").addEventListener("click", function(){
+      document.getElementById("searchform").addEventListener("submit", function(){
         var num = document.getElementById("number").value;
         var httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function() {
