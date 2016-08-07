@@ -39,10 +39,10 @@
 		  
             <h1>Welcome to Number Fish</h1><br/><h3>Here You Can Search for Mobile Number Details</h3>
             <div class="mtb">
-              <form id="searchform"> 
+              <div> 
                 <input id="number" type="tel" class="subscribe-input" placeholder="Enter mobile number ..." required>
                 <button id="search" class="btn btn-conf btn-green" type="submit">Search</button>
-              </form>
+              </div>
             </div><!--/mt-->
             <h6>30 DAY FREE TRIAL - NO CREDIT CARD NEEDED.</h6>
           </div>
@@ -141,8 +141,11 @@
         var num = document.getElementById("number").value;
         if(num == null){
           document.getElementById("res_num").innerHTML = "Please Enter a Number";
+          document.getElementById("res_stat").innerHTML = "";
+          document.getElementById("res_recy").innerHTML = "";
           $("#result-dialog").modal();
         }
+        else{
         var httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function() {
             if (httpRequest.readyState == 4 && httpRequest.status == 200) {
@@ -177,9 +180,13 @@
               }
               else if(result_stat == '2'){
                   document.getElementById("res_num").innerHTML = "Number Unavailable";
+                  document.getElementById("res_stat").innerHTML = "";
+                  document.getElementById("res_recy").innerHTML = "";
               }
               else{
                 document.getElementById("res_num").innerHTML = "Un Expected error";
+                document.getElementById("res_stat").innerHTML = "";
+                document.getElementById("res_recy").innerHTML = "";
               }
               $("#result-dialog").modal();
             }
@@ -189,6 +196,7 @@
         };
         httpRequest.open('GET','http://numberfish.info/app/search.php?number='+num,true);
         httpRequest.send(null);
+      }
       });
     </script>
   </body>
