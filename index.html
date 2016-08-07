@@ -137,8 +137,12 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/retina-1.1.0.js"></script>
     <script type="text/javascript">
-      document.getElementById("searchform").addEventListener("submit", function(){
+      document.getElementById("search").addEventListener("click", function(){
         var num = document.getElementById("number").value;
+        if(num == null){
+          document.getElementById("res_num").innerHTML = "Please Enter a Number";
+          $("#result-dialog").modal();
+        }
         var httpRequest = new XMLHttpRequest();
         httpRequest.onreadystatechange = function() {
             if (httpRequest.readyState == 4 && httpRequest.status == 200) {
